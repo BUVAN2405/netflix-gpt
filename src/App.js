@@ -1,11 +1,12 @@
 
-
+import Body from "./components/Body";
 function App() {
   return (
-    <div>
-     HI
-    </div>
-  );
+
+<Body />
+    );   
+    
+  
 }
 
 export default App;
