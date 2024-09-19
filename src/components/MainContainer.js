@@ -2,17 +2,17 @@ import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 import { useSelector } from "react-redux";
 const MainContainer = () => {
-  const moives = useSelector((store) => store.moives?.nowPlayingMoives);
-  if (!moives) return;
+  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
+  if (!movies) return;
 
-  const mainMoive = moives[1];
+  const mainMovie = movies[13];
 
-  const { original_title, overview, id } = mainMoive; // here were extracting the data
+  const { original_title, overview, id } = mainMovie; // here were extracting the data
 
   return (
-    <div>
+    <div className="pt-[30%] bg-black md:pt-0">
       <VideoTitle title={original_title} overview={overview} />
-      <VideoBackground moiveId={id} />
+      <VideoBackground movieId={id} />
     </div>
   );
 };

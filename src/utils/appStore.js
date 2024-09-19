@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
-import moivesReducers from "./moivesSlice";
-
+import moviesReducers from "./moviesSlice";
+import gptReducer from "./gptSlice";
+import configReducer from "./configSlice";
 const appStore = configureStore({
   reducer: {
     user: userReducer,
-    moives: moivesReducers,
+    movies: moviesReducers,
+    gpt: gptReducer,
+    config: configReducer,
   },
 });
 

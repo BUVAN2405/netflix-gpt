@@ -12,3 +12,18 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODhkNGZiMTE0MjA1ODI3YjBjYjk5ODU3Nzg0YTcwYSIsIm5iZiI6MTcyNTY0MjYzNS4xNjkwNDUsInN1YiI6IjY2ZGFlMjZlMDY1ZDVhYTU4MGM1ZTQyYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CjyCrAEsEPHkVsoncQkg4IOmXeR3iLWh7twVv7q_BVY",
   },
 };
+
+export const BG_URL =
+  "https://assets.nflxext.com/ffe/siteui/vlv3/20bf1f4d-1c73-48fd-8689-310d6dd80efc/81bdc063-cb8f-4afe-8a02-a3131ca4ef5e/IN-en-20240812-POP_SIGNUP_TWO_WEEKS-perspective_WEB_7998f3b6-63e3-424a-8328-550cf777ddce_medium.jpg";
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "tamil", name: "Tamil" },
+  { identifier: "mal", name: "Malayalam" },
+];
+
+//export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+
+export const API_KEY = "AIzaSyClPCFAtsDGerL47-uPgFHwR0jO63cfiwc";

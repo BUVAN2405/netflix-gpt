@@ -6,13 +6,16 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
-import { LOGO } from "../utils/constants";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -45,14 +48,41 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black  z-10 justify-between flex">
-      <img className="w-44" src={LOGO} alt="logo" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black  z-10  flex flex-col md:flex-row justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
 
       {user && (
-        <div className="flex p-3 ">
+        <div className="flex p-2 justify-between">
+          {showGptSearch && (
+            <select
+              className="px-3 py-2  mx-3 my-2 rounded-md bg-red-800 text-white"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+
+          <button
+            className="md: bg-purple-700 text-white rounded-md px-4 py-2  mx-4 my-2"
+            onClick={handleGptSearchClick}
+          >
+            {showGptSearch ? "Homepage" : "Gpt Search"}
+          </button>
           <img
-            className=" h-12 w-12 rounded-md z-5"
+            className="hidden md:block h-12 w-12 rounded-md z-5"
             alt="usericon"
             src={user?.photoURL}
           />
