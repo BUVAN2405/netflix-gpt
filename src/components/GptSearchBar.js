@@ -6,9 +6,9 @@ import { addGptMovieResult } from "../utils/gptSlice";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const GptSearchBar = () => {
-  const dispatch = useDispatch();
   const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+  const dispatch = useDispatch();
   const genAI = new GoogleGenerativeAI(API_TOKEN);
 
   // search movie in TMDB
